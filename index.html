@@ -66,47 +66,34 @@
 
   <main>
 
-    <!-- ================= CREAM MARQUEE BAND ================= -->
-    <div class="marquee-band" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Computer Vision</span><span class="dim">◆</span>
-        <span>IoT</span><span class="dim">◆</span>
-        <span>Robotics</span><span class="dim">◆</span>
-        <span>Network</span><span class="dim">◆</span>
-        <span>Cyber Security</span><span class="dim">◆</span>
-        <span>Ethical Hacking</span><span class="dim">◆</span>
-        <span>CTF</span><span class="dim">◆</span>
-        <span>Embedded Systems</span><span class="dim">◆</span>
-        <span>Computer Vision</span><span class="dim">◆</span>
-        <span>IoT</span><span class="dim">◆</span>
-        <span>Robotics</span><span class="dim">◆</span>
-        <span>Network</span><span class="dim">◆</span>
-        <span>Cyber Security</span><span class="dim">◆</span>
-        <span>Ethical Hacking</span><span class="dim">◆</span>
-        <span>CTF</span><span class="dim">◆</span>
-        <span>Embedded Systems</span><span class="dim">◆</span>
-      </div>
+    <!-- ================= CREAM CLOUD BAND ================= -->
+    <div class="cloud-band" aria-hidden="true">
+      <div class="cloud" style="left:4%; top:3px;"></div>
+      <div class="cloud" style="left:17%; top:10px;"></div>
+      <div class="cloud" style="left:30%; top:4px;"></div>
+      <div class="cloud" style="left:44%; top:12px;"></div>
+      <div class="cloud" style="left:58%; top:5px;"></div>
+      <div class="cloud" style="left:72%; top:11px;"></div>
+      <div class="cloud" style="left:86%; top:2px;"></div>
     </div>
 
     <!-- ================= HERO ================= -->
     <section id="home" class="hero section">
       <div class="container hero-grid">
 
-        <div class="hero-text">
-          <a href="#contact" class="badge reveal" style="--d:.05s">
-            <span class="badge-dot"></span>
-            Available for work
-            <span class="badge-arrow">→</span>
-          </a>
+        <!-- Badge — direct grid child (always first: desktop left, mobile top) -->
+        <a href="#contact" class="badge reveal" style="--d:.05s">
+          <span class="badge-dot"></span>
+          Available for work
+          <span class="badge-arrow">→</span>
+        </a>
 
+        <!-- Hero text — left column on desktop, below photo on mobile -->
+        <div class="hero-text">
           <h1 class="hero-name reveal" style="--d:.12s">
             Achmad<br>
             <span class="text-gradient">Hilmi Bukhari</span>
           </h1>
-
-          <p class="hero-role mono reveal" style="--d:.2s">
-            <span class="role-static">// </span><span class="role-type" id="role-type">Computer Vision</span>
-          </p>
 
           <p class="hero-desc reveal" style="--d:.28s">
             I'm passionate about <strong>computer vision</strong>, <strong>IoT</strong>, and
@@ -121,16 +108,9 @@
             </a>
             <a href="#projects" class="btn btn-ghost">View Experiences</a>
           </div>
-
-          <div class="hero-stats reveal" style="--d:.42s">
-            <span class="stat-item"><span class="stat-num">3</span><span class="stat-plus">+</span> Awards</span>
-            <span class="stat-div"></span>
-            <span class="stat-item"><span class="stat-num">2</span><span class="stat-plus">×</span> Podiums</span>
-            <span class="stat-div"></span>
-            <span class="stat-item"><span class="stat-num">5</span> Fields</span>
-          </div>
         </div>
 
+        <!-- Hero photo — right column on desktop, middle on mobile -->
         <div class="hero-photo reveal" style="--d:.22s">
           <div class="hero-photo-glow" aria-hidden="true"></div>
           <div class="hero-photo-ring" aria-hidden="true"></div>
@@ -138,12 +118,6 @@
             <img src="foto/c.jpg" alt="Portrait of Achmad Hilmi Bukhari" loading="eager"
                  style="object-position: 50% 18%;">
           </div>
-
-          <!-- Floating chips -->
-          <div class="chip chip-1" aria-hidden="true"><span class="chip-bg">OpenCV</span></div>
-          <div class="chip chip-2" aria-hidden="true"><span class="chip-bg">Arduino</span></div>
-          <div class="chip chip-3" aria-hidden="true"><span class="chip-bg">Python</span></div>
-          <div class="chip chip-4" aria-hidden="true"><span class="chip-bg">C++</span></div>
         </div>
 
       </div>

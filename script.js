@@ -86,28 +86,6 @@ const sectionObserver = new IntersectionObserver(
 );
 navSections.forEach((section) => sectionObserver.observe(section));
 
-/* ---------- Role typewriter (Hero) ---------- */
-const roleEl = document.getElementById('role-type');
-if (roleEl) {
-  const roles = ['Computer Vision', 'IoT', 'Robotics', 'Network', 'Cyber Security'];
-  let idx = 0;
-
-  function nextRole() {
-    idx = (idx + 1) % roles.length;
-    roleEl.style.opacity = '0';
-    setTimeout(() => {
-      roleEl.textContent = roles[idx];
-      roleEl.style.opacity = '1';
-    }, 220);
-  }
-
-  if (reducedMotion) {
-    roleEl.textContent = roles[0];
-  } else {
-    setInterval(nextRole, 3200);
-  }
-}
-
 /* ---------- 3D tilt on award cards ---------- */
 const tiltCards = [...document.querySelectorAll('.tilt-card')];
 
