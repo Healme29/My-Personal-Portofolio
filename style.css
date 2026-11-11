@@ -1224,6 +1224,7 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "badge"
       "photo"
@@ -1232,8 +1233,8 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
     column-gap: 0;
     row-gap: 20px;
   }
-  .badge { justify-self: center; }
-  .hero-text { text-align: center; }
+  .badge { justify-self: center; width: fit-content; }
+  .hero-text { text-align: center; align-self: start; }
   .hero-desc { margin-inline: auto; }
   .hero-cta { justify-content: center; }
   .hero-photo { width: 340px; height: 340px; margin-inline: auto; }
@@ -1287,4 +1288,5 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
 @media (max-width: 400px) {
   .container { width: calc(100% - 32px); }
   .hero-photo { width: 240px; height: 240px; }
+  .cloud { display: none; }
 }
