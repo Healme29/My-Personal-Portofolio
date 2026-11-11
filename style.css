@@ -241,8 +241,12 @@ section { scroll-margin-top: 84px; }
 .nav-link.active::after { width: 70%; }
 
 /* --- Navbar gentle wave --- */
-.nav-logo, .nav-link {
+.nav-link {
   display: inline-block;
+  animation: navWave 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation-delay: var(--nd, 0s);
+}
+.nav-logo {
   animation: navWave 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   animation-delay: var(--nd, 0s);
 }
