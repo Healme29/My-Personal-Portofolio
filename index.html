@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achmad Hilmi Bukhari — Portfolio</title>
-  <meta name="description" content="Portfolio of Achmad Hilmi Bukhari — computer vision, IoT, robotics, networking and cyber security.">
+  <title>Achmad Hilmi Bukhari — CV · IoT · Robotics · Network · Cyber</title>
+  <meta name="description" content="Portfolio of Achmad Hilmi Bukhari — computer vision, IoT, robotics, networking, and cyber security.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Achmad Hilmi Bukhari">
+  <meta property="og:description" content="Computer Vision · IoT · Robotics · Networking · Cyber Security">
+  <meta property="og:image" content="https://hocsilens.dev/portofolio/foto/c.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="foto/a.jpeg" sizes="any" type="image/jpeg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- Ambient background -->
   <div class="bg-grid" aria-hidden="true"></div>
@@ -38,9 +51,9 @@
       <button class="nav-burger" id="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span>
       </button>
+
     </div>
 
-    <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="#home" class="mobile-link">Home</a>
       <a href="#about" class="mobile-link">About</a>
@@ -52,6 +65,28 @@
   </nav>
 
   <main>
+
+    <!-- ================= CREAM MARQUEE BAND ================= -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Computer Vision</span><span class="dim">◆</span>
+        <span>IoT</span><span class="dim">◆</span>
+        <span>Robotics</span><span class="dim">◆</span>
+        <span>Network</span><span class="dim">◆</span>
+        <span>Cyber Security</span><span class="dim">◆</span>
+        <span>Ethical Hacking</span><span class="dim">◆</span>
+        <span>CTF</span><span class="dim">◆</span>
+        <span>Embedded Systems</span><span class="dim">◆</span>
+        <span>Computer Vision</span><span class="dim">◆</span>
+        <span>IoT</span><span class="dim">◆</span>
+        <span>Robotics</span><span class="dim">◆</span>
+        <span>Network</span><span class="dim">◆</span>
+        <span>Cyber Security</span><span class="dim">◆</span>
+        <span>Ethical Hacking</span><span class="dim">◆</span>
+        <span>CTF</span><span class="dim">◆</span>
+        <span>Embedded Systems</span><span class="dim">◆</span>
+      </div>
+    </div>
 
     <!-- ================= HERO ================= -->
     <section id="home" class="hero section">
@@ -69,7 +104,9 @@
             <span class="text-gradient">Hilmi Bukhari</span>
           </h1>
 
-          <p class="hero-role mono reveal" style="--d:.2s">// Undergraduate Student</p>
+          <p class="hero-role mono reveal" style="--d:.2s">
+            <span class="role-static">// </span><span class="role-type" id="role-type">Computer Vision</span>
+          </p>
 
           <p class="hero-desc reveal" style="--d:.28s">
             I'm passionate about <strong>computer vision</strong>, <strong>IoT</strong>, and
@@ -84,13 +121,29 @@
             </a>
             <a href="#projects" class="btn btn-ghost">View Experiences</a>
           </div>
+
+          <div class="hero-stats reveal" style="--d:.42s">
+            <span class="stat-item"><span class="stat-num">3</span><span class="stat-plus">+</span> Awards</span>
+            <span class="stat-div"></span>
+            <span class="stat-item"><span class="stat-num">2</span><span class="stat-plus">×</span> Podiums</span>
+            <span class="stat-div"></span>
+            <span class="stat-item"><span class="stat-num">5</span> Fields</span>
+          </div>
         </div>
 
         <div class="hero-photo reveal" style="--d:.22s">
           <div class="hero-photo-glow" aria-hidden="true"></div>
-          <div class="hero-photo-frame">
-            <img src="foto/c.jpg" alt="Portrait of Achmad Hilmi Bukhari" loading="eager">
+          <div class="hero-photo-ring" aria-hidden="true"></div>
+          <div class="hero-photo-frame circle">
+            <img src="foto/c.jpg" alt="Portrait of Achmad Hilmi Bukhari" loading="eager"
+                 style="object-position: 50% 18%;">
           </div>
+
+          <!-- Floating chips -->
+          <div class="chip chip-1" aria-hidden="true"><span class="chip-bg">OpenCV</span></div>
+          <div class="chip chip-2" aria-hidden="true"><span class="chip-bg">Arduino</span></div>
+          <div class="chip chip-3" aria-hidden="true"><span class="chip-bg">Python</span></div>
+          <div class="chip chip-4" aria-hidden="true"><span class="chip-bg">C++</span></div>
         </div>
 
       </div>
@@ -151,7 +204,7 @@
               </div>
             </div>
 
-            <a href="gambar download.jpg" class="btn btn-gold reveal" style="--d:.5s" download="gambar download.jpg">
+            <a href="CV.pdf" class="btn btn-gold reveal" style="--d:.5s" download="Achmad-Hilmi-Bukhari-CV.pdf">
               Download CV
               <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </a>
@@ -161,7 +214,7 @@
       </div>
     </section>
 
-    <!-- ================= PROJECTS / AWARDS ================= -->
+    <!-- ================= PROJECTS ================= -->
     <section id="projects" class="section section-pad">
       <div class="container">
 
@@ -172,14 +225,14 @@
 
         <div class="projects-grid">
 
-          <article class="project-card reveal" style="--d:.05s">
+          <article class="project-card reveal tilt-card" style="--d:.05s">
             <div class="project-media">
-              <img src="gambar 3.jpg" alt="1st Winner Best Tactic — 2024 Indonesian National Robotics Tournament" loading="lazy">
-              <span class="project-badge">Latest</span>
+              <img src="gambar-3.webp" alt="1st Winner Best Tactic — Indonesian National Robotics Tournament" loading="lazy">
+              <span class="project-badge badge-gold">🥇 1st Winner</span>
             </div>
             <div class="project-body">
               <h3>1st Winner — Best Tactic</h3>
-              <p class="project-sub">2024 Indonesian National Robotics Tournament Championship, Chairman of the People's Consultative Assembly Cup</p>
+              <p class="project-sub" style="color:var(--text-2)">2024 Indonesian National Robotics Tournament — Chairman of the People's Consultative Assembly Cup</p>
               <p class="project-date mono">May 17–19, 2024</p>
               <div class="project-tags">
                 <span class="tag">Robotics</span>
@@ -189,14 +242,14 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--d:.15s">
+          <article class="project-card reveal tilt-card" style="--d:.15s">
             <div class="project-media">
-              <img src="gambar 4.jpg" alt="2nd Winner Place Best Point — 12th World Robotic For Peace 2023" loading="lazy">
-              <span class="project-badge">Latest</span>
+              <img src="gambar-4.webp" alt="2nd Winner Place Best Point — World Robotic For Peace 2023" loading="lazy">
+              <span class="project-badge badge-silver">🥈 2nd Winner</span>
             </div>
             <div class="project-body">
               <h3>2nd Winner — Place Best Point</h3>
-              <p class="project-sub">Category (Close) Micro Line Follower — 12th World Robotic For Peace, Singapore–Malaysia–Thailand</p>
+              <p class="project-sub" style="color:var(--text-2)">Category (Close) Micro Line Follower — 12th World Robotic For Peace, Singapore–Malaysia–Thailand</p>
               <p class="project-date mono">October 22–28, 2023</p>
               <div class="project-tags">
                 <span class="tag">Micro Line Follower</span>
@@ -206,14 +259,14 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--d:.25s">
+          <article class="project-card reveal tilt-card" style="--d:.25s">
             <div class="project-media">
-              <img src="gambar 5.jpg" alt="3rd Winner — The 2nd Rotary Youth Super Competition 2K23" loading="lazy">
-              <span class="project-badge">Latest</span>
+              <img src="gambar-5.webp" alt="3rd Winner — Rotary Youth Super Competition 2K23" loading="lazy">
+              <span class="project-badge badge-bronze">🥉 3rd Winner</span>
             </div>
             <div class="project-body">
               <h3>3rd Winner — Rotary Youth Super Competition 2K23</h3>
-              <p class="project-sub">The 2nd ROTARY YOUTH SUPER COMPETITION</p>
+              <p class="project-sub" style="color:var(--text-2)">The 2nd ROTARY YOUTH SUPER COMPETITION</p>
               <p class="project-date mono">September 23–24, 2023</p>
               <div class="project-tags">
                 <span class="tag">Robotics</span>
@@ -227,7 +280,7 @@
       </div>
     </section>
 
-    <!-- ================= SKILLS ================= -->
+    <!-- ================= SKILLS — BENTO 2+1 ================= -->
     <section id="skills" class="section section-pad">
       <div class="container">
 
@@ -236,13 +289,15 @@
           <h2 class="section-title">Skills &amp; <span class="text-gradient">Expertise</span></h2>
         </header>
 
-        <div class="skills-grid">
+        <div class="bento-skills">
 
+          <!-- Computer Vision & AI -->
           <article class="skill-card reveal" style="--d:.05s">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
             <h3>Computer Vision &amp; AI</h3>
+            <p class="skill-desc">Image processing, object detection, and machine learning pipelines.</p>
             <div class="skill-tags">
               <span class="tag">OpenCV</span>
               <span class="tag">Python</span>
@@ -252,11 +307,13 @@
             </div>
           </article>
 
+          <!-- IoT & Robotics -->
           <article class="skill-card reveal" style="--d:.15s">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
             </div>
             <h3>IoT &amp; Robotics</h3>
+            <p class="skill-desc">Embedded systems, sensors, and physical computing.</p>
             <div class="skill-tags">
               <span class="tag">Arduino</span>
               <span class="tag">Sensors &amp; Actuators</span>
@@ -265,33 +322,45 @@
             </div>
           </article>
 
-          <article class="skill-card reveal" style="--d:.25s">
+          <!-- Network & Cyber Security (full-width) -->
+          <article class="skill-card skill-card-wide reveal" style="--d:.25s">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3>Network &amp; Cyber Security</h3>
-            <div class="skill-tags">
-              <span class="tag">Network Engineering</span>
-              <span class="tag">Ethical Hacking</span>
-              <span class="tag">Capture the Flag</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Web Development</span>
-              <span class="tag">TCP/IP</span>
-              <span class="tag">DNS</span>
-              <span class="tag">HTTP/S</span>
-              <span class="tag">Routing</span>
-              <span class="tag">Firewall</span>
-              <span class="tag">VPN</span>
-              <span class="tag">SMTP</span>
-              <span class="tag">Windows Security</span>
-              <span class="tag">Linux Hardening</span>
-              <span class="tag">System Monitoring</span>
-              <span class="tag">Logging</span>
-              <span class="tag">Nmap</span>
-              <span class="tag">Hashcat</span>
-              <span class="tag">John the Ripper</span>
-              <span class="tag">Bash</span>
-              <span class="tag">PowerShell</span>
+            <p class="skill-desc">Infrastructure, offensive/defensive security, and system hardening.</p>
+            <div class="skill-wide-grid">
+              <div class="skill-subcol">
+                <span class="skill-subhead mono">networking &amp; infrastructure</span>
+                <div class="skill-tags">
+                  <span class="tag">Network Engineering</span>
+                  <span class="tag">TCP/IP</span>
+                  <span class="tag">DNS</span>
+                  <span class="tag">HTTP/S</span>
+                  <span class="tag">Routing</span>
+                  <span class="tag">Firewall</span>
+                  <span class="tag">VPN</span>
+                  <span class="tag">SMTP</span>
+                  <span class="tag">Web Development</span>
+                </div>
+              </div>
+              <div class="skill-subcol">
+                <span class="skill-subhead mono">offensive &amp; defensive security</span>
+                <div class="skill-tags">
+                  <span class="tag">Ethical Hacking</span>
+                  <span class="tag">Capture the Flag</span>
+                  <span class="tag">Linux</span>
+                  <span class="tag">Windows Security</span>
+                  <span class="tag">Linux Hardening</span>
+                  <span class="tag">System Monitoring</span>
+                  <span class="tag">Logging</span>
+                  <span class="tag">Nmap</span>
+                  <span class="tag">Hashcat</span>
+                  <span class="tag">John the Ripper</span>
+                  <span class="tag">Bash</span>
+                  <span class="tag">PowerShell</span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -299,7 +368,7 @@
       </div>
     </section>
 
-    <!-- ================= PLAYGROUND — MALWARE SORTER ================= -->
+    <!-- ================= PLAYGROUND ================= -->
     <section id="playground" class="section section-pad">
       <div class="container">
 
@@ -418,9 +487,6 @@
               <a href="https://www.instagram.com/hocsilens/" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </a>
-              <a href="#" class="social-btn" aria-label="Discord">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09a.09.09 0 0 0-.07-.03c-1.5.26-2.93.71-4.27 1.33a.07.07 0 0 0-.03.02C2.79 10.82 2 14.69 2 18.61a.1.1 0 0 0 .08.09c1.53.39 3.06.67 4.6.83a.09.09 0 0 0 .09-.03c.42-.58.79-1.19 1.1-1.83a.09.09 0 0 0-.03-.12 5.3 5.3 0 0 1-.81-.33.09.09 0 0 1 .01-.15 11.2 11.2 0 0 0 4.18.83.09.09 0 0 0 .09-.09v-.14a.08.08 0 0 0-.1-.08 5.7 5.7 0 0 1-2.2-.55.09.09 0 0 1-.02-.15c.11-.08.22-.17.32-.26.02-.01.04-.02.06-.03a.09.09 0 0 1 .07 0c3.44 1.57 7.15 1.57 10.55 0a.09.09 0 0 1 .07 0l.06.03c.10.09.21.18.32.26a.09.09 0 0 1-.02.15 5.7 5.7 0 0 1-2.2.55.08.08 0 0 0-.1.08v.14c0 .05.04.09.09.09a11.2 11.2 0 0 0 4.18-.83.09.09 0 0 1 .01.15c-.24.1-.5.2-.81.33a.09.09 0 0 0-.03.12c.31.64.68 1.25 1.1 1.83a.09.09 0 0 0 .09.03c1.54-.16 3.07-.44 4.6-.83a.1.1 0 0 0 .08-.09c0-3.92-.8-7.79-2.2-11.26a.07.07 0 0 0-.03-.02zM8 15.33c-.99 0-1.81-.9-1.81-2s.8-2 1.81-2 1.82.9 1.82 2-.81 2-1.82 2zm7.99 0c-.99 0-1.81-.9-1.81-2s.8-2 1.81-2 1.81.9 1.81 2-.8 2-1.81 2z"/></svg>
-              </a>
               <a href="https://github.com/Healme29" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               </a>
@@ -432,7 +498,7 @@
 
           <form class="contact-form reveal" style="--d:.15s" action="https://formsubmit.co/hilmibukhari29@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="New message from portfolio website">
+            <input type="hidden" name="_subject" value="New message from portfolio — hocsilens.dev">
 
             <div class="form-row">
               <div class="form-field">
@@ -470,9 +536,25 @@
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-logo"><span class="gold">◆</span> hocsilens</span>
-      <p class="footer-copy">© <span id="year"></span> Achmad Hilmi Bukhari. All Rights Reserved.</p>
-      <span class="footer-back"><a href="#home" class="mono">back to top ↑</a></span>
+      <div class="footer-col">
+        <span class="footer-logo"><span class="gold">◆</span> hocsilens</span>
+        <p class="footer-copy">© <span id="year"></span> Achmad Hilmi Bukhari. All Rights Reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <span class="footer-div"></span>
+        <a href="#projects">Projects</a>
+        <span class="footer-div"></span>
+        <a href="#skills">Skills</a>
+        <span class="footer-div"></span>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/hocsilens/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://github.com/Healme29" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/achmad-hilmi-bukhari-0192b836a" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+      </div>
+      <a href="#home" class="footer-back"><span class="mono">↑ back to top</span></a>
     </div>
   </footer>
 
