@@ -156,15 +156,13 @@ section { scroll-margin-top: 84px; }
   transition:
     opacity 0.9s var(--ease) var(--d, 0s),
     transform 0.9s var(--ease) var(--d, 0s);
+  will-change: opacity, transform;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { transition: none; opacity: 1; transform: none; will-change: auto; }
-  .hero-photo-float, .orbit-svg,
-  .hero-photo-glow, .hero-photo-ring,
-  .nav-logo, .nav-link { animation: none !important; }
+  .reveal { transition: none; opacity: 1; transform: none; }
   * { animation-duration: 0.01ms !important; }
 }
 
@@ -240,24 +238,6 @@ section { scroll-margin-top: 84px; }
 .nav-link:hover::after { width: 60%; }
 .nav-link.active { color: var(--gold); }
 .nav-link.active::after { width: 70%; }
-
-/* --- Navbar gentle wave --- */
-.nav-logo, .nav-link {
-  display: inline-block;
-  animation: navWave 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-.nav-logo { --nd: 0s; }
-.nav-links li:nth-child(1) { --nd: 0.18s; }
-.nav-links li:nth-child(2) { --nd: 0.36s; }
-.nav-links li:nth-child(3) { --nd: 0.54s; }
-.nav-links li:nth-child(4) { --nd: 0.72s; }
-.nav-links li:nth-child(5) { --nd: 0.9s; }
-.nav-links li:nth-child(6) { --nd: 1.08s; }
-
-@keyframes navWave {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-1.5px); }
-}
 
 .nav-burger {
   display: none;
@@ -350,15 +330,32 @@ section { scroll-margin-top: 84px; }
 .btn-block { width: 100%; }
 
 /* ==========================================================================
-   CREAM DIVIDER (replaces scrolling marquee)
+   CREAM MARQUEE BAND
    ========================================================================== */
-.band-divider {
-  height: 5px;
-  background: var(--cream);
-  opacity: 0.3;
+.marquee-band {
   position: relative;
   z-index: 5;
+  background: var(--cream);
+  color: #15171A;
+  overflow: hidden;
+  padding: 14px 0;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
 }
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-band:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-track span { white-space: nowrap; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.marquee-track .dim { color: rgba(21, 23, 26, 0.25); font-size: 11px; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ==========================================================================
    HERO
@@ -475,26 +472,12 @@ section { scroll-margin-top: 84px; }
   background: var(--text-3);
 }
 
-/* ------- Hero photo — wave float, orbit text, ring breathe ------- */
+/* ------- Hero photo (circle + chips) ------- */
 .hero-photo {
   position: relative;
   justify-self: center;
   width: 380px;
   height: 380px;
-}
-
-.hero-photo-float {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: waterFloat 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  will-change: transform;
-}
-
-@keyframes waterFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 .hero-photo-glow {
@@ -504,12 +487,6 @@ section { scroll-margin-top: 84px; }
   background: radial-gradient(closest-side, rgba(247, 200, 137, 0.12), transparent 72%);
   filter: blur(24px);
   pointer-events: none;
-  animation: breatheGlow 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-@keyframes breatheGlow {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.06); }
 }
 
 .hero-photo-ring {
@@ -524,14 +501,11 @@ section { scroll-margin-top: 84px; }
   -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+  animation: ringSpin 14s linear infinite paused;
   pointer-events: none;
-  animation: breatheRing 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
-
-@keyframes breatheRing {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.hero:hover .hero-photo-ring { animation-play-state: running; }
 
 .hero-photo-frame.circle {
   width: 100%;
@@ -546,24 +520,41 @@ section { scroll-margin-top: 84px; }
   height: 100%;
   object-fit: cover;
   filter: saturate(1.04);
-  transition: transform 1.2s var(--ease), filter 0.8s var(--ease-2);
+  transition: transform 0.8s var(--ease), filter 0.6s var(--ease-2);
 }
-.hero-photo-frame.circle:hover img { transform: scale(1.03); filter: saturate(1.08); }
+.hero-photo-frame.circle:hover img { transform: scale(1.06); filter: saturate(1.1); }
 
-/* --- Orbiting skill text --- */
-.orbit-svg {
+/* --- Floating chips --- */
+.chip {
   position: absolute;
-  inset: -40px;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
   z-index: 3;
+  display: flex;
+  animation: chipFloat 3.6s var(--ease-2) infinite;
   pointer-events: none;
-  animation: orbitSpin 70s linear infinite;
-  will-change: transform;
+}
+.chip-bg {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #10120E;
+  background: var(--cream);
+  border: 1px solid rgba(246, 244, 236, 0.2);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
-@keyframes orbitSpin {
-  to { transform: rotate(360deg); }
+.chip-1 { top: -22px; right: -10px; animation-delay: 0s; }
+.chip-2 { bottom: -12px; right: -30px; animation-delay: 0.9s; }
+.chip-3 { top: 28%; left: -56px;  animation-delay: 1.8s; }
+.chip-4 { bottom: 18%; left: -40px; animation-delay: 2.7s; }
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 /* ==========================================================================
@@ -1220,11 +1211,14 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-  .hero-photo { order: -1; }
   .hero-text { text-align: center; }
   .hero-desc { margin-inline: auto; }
   .hero-cta { justify-content: center; }
   .hero-photo { width: 340px; height: 340px; margin-inline: auto; }
+  .chip-1 { top: -18px; right: 0; }
+  .chip-2 { bottom: -8px; right: -12px; }
+  .chip-3 { top: 24%; left: -28px; }
+  .chip-4 { bottom: 18%; left: -20px; }
 
   .projects-grid { grid-template-columns: 1fr 1fr; }
   .bento-skills { grid-template-columns: 1fr 1fr; }
@@ -1249,9 +1243,9 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
 
 @media (max-width: 640px) {
   .section-pad { padding: 72px 0; }
-  .hero-grid { gap: 28px; }
+
   .hero-photo { width: 280px; height: 280px; }
-  .hero { padding-top: 104px; }
+  .chip { display: none; }
 
   .projects-grid { grid-template-columns: 1fr; }
   .bento-skills { grid-template-columns: 1fr; }
