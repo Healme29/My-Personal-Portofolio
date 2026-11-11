@@ -1,0 +1,11 @@
+# Internal working files — not part of the website
+fix/
+fix 1/
+
+# Unused image assets (kept locally, not deployed)
+foto/b.jpeg
+gambar 1.jpg
+gambar 3.jpg
+gambar 4.jpg
+gambar 5.jpg
+gambar download.jpg
