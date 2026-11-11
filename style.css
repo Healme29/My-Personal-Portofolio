@@ -163,7 +163,7 @@ section { scroll-margin-top: 84px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { transition: none; opacity: 1; transform: none; }
-  .nav-logo, .nav-link, .cloud { animation: none !important; }
+  .nav-logo, .nav-link, .cloud, .hero-photo-ring { animation: none !important; }
   * { animation-duration: 0.01ms !important; }
 }
 
@@ -244,6 +244,7 @@ section { scroll-margin-top: 84px; }
 .nav-logo, .nav-link {
   display: inline-block;
   animation: navWave 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation-delay: var(--nd, 0s);
 }
 .nav-logo { --nd: 0s; }
 .nav-links li:nth-child(1) { --nd: 0.18s; }
@@ -255,7 +256,7 @@ section { scroll-margin-top: 84px; }
 
 @keyframes navWave {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-1.5px); }
+  50% { transform: translateY(-3px); }
 }
 
 .nav-burger {
@@ -349,57 +350,32 @@ section { scroll-margin-top: 84px; }
 .btn-block { width: 100%; }
 
 /* ==========================================================================
-   CREAM CLOUD BAND (replaces scrolling marquee)
+   CREAM MARQUEE BAND
    ========================================================================== */
-.cloud-band {
+.marquee-band {
   position: relative;
   z-index: 5;
-  height: 30px;
   background: var(--cream);
+  color: #15171A;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  padding: 14px 0;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
 }
 
-.cloud {
-  position: absolute;
-  width: 58px;
-  height: 20px;
-  border-radius: 20px;
-  background: rgba(246, 244, 236, 0.45);
-  cursor: pointer;
-  transition: filter 0.3s;
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
 }
-.cloud::before {
-  content: '';
-  position: absolute;
-  width: 32px;
-  height: 16px;
-  border-radius: 16px;
-  background: inherit;
-  top: -7px;
-  left: 10px;
-}
-.cloud::after {
-  content: '';
-  position: absolute;
-  width: 26px;
-  height: 12px;
-  border-radius: 14px;
-  background: inherit;
-  top: -5px;
-  right: 7px;
-}
-.cloud:hover {
-  animation: cloudWiggle 0.5s ease infinite;
-}
+.marquee-band:hover .marquee-track { animation-play-state: paused; }
 
-@keyframes cloudWiggle {
-  0%, 100% { transform: rotate(0deg) translateX(0); }
-  25% { transform: rotate(-5deg) translateX(-4px); }
-  50% { transform: rotate(4deg) translateX(4px); }
-  75% { transform: rotate(-2deg) translateX(-2px); }
-}
+.marquee-track span { white-space: nowrap; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.marquee-track .dim { color: rgba(21, 23, 26, 0.25); font-size: 11px; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ==========================================================================
    HERO
@@ -425,6 +401,8 @@ section { scroll-margin-top: 84px; }
 /* ------- Hero text ------- */
 .badge {
   grid-area: badge;
+  justify-self: start;
+  width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -515,8 +493,11 @@ section { scroll-margin-top: 84px; }
   -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+  animation: ringSpin 14s linear infinite paused;
   pointer-events: none;
 }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.hero:hover .hero-photo-ring { animation-play-state: running; }
 
 .hero-photo-frame.circle {
   width: 100%;
@@ -534,6 +515,59 @@ section { scroll-margin-top: 84px; }
   transition: transform 0.8s var(--ease), filter 0.6s var(--ease-2);
 }
 .hero-photo-frame.circle:hover img { transform: scale(1.06); filter: saturate(1.1); }
+
+/* --- Clouds around hero photo --- */
+.cloud {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+.cloud:hover { pointer-events: auto; }
+
+.cloud::before {
+  content: '';
+  position: absolute;
+  width: 42px;
+  height: 18px;
+  border-radius: 18px;
+  background: rgba(246, 244, 236, 0.55);
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.25);
+}
+.cloud::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 14px;
+  border-radius: 14px;
+  background: rgba(246, 244, 236, 0.4);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.2);
+}
+.cloud:hover {
+  animation: cloudWiggle 0.5s ease infinite;
+}
+
+@keyframes cloudWiggle {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  25% { transform: rotate(-5deg) translateX(-5px); }
+  50% { transform: rotate(4deg) translateX(5px); }
+  75% { transform: rotate(-2deg) translateX(-3px); }
+}
+
+.cloud-1 { top: -16px; right: 10px; }
+.cloud-1::before { width: 36px; height: 16px; top: -6px; left: 6px; }
+.cloud-1::after { width: 22px; height: 12px; top: -4px; right: 4px; }
+
+.cloud-2 { bottom: 8px; right: -28px; }
+.cloud-2::before { width: 40px; height: 18px; top: -7px; left: 8px; }
+.cloud-2::after { width: 26px; height: 13px; top: -5px; right: 5px; }
+
+.cloud-3 { top: 32%; left: -46px; }
+.cloud-3::before { width: 34px; height: 15px; top: -5px; left: 5px; }
+.cloud-3::after { width: 24px; height: 11px; top: -3px; right: 3px; }
+
+.cloud-4 { bottom: 22%; left: -34px; }
+.cloud-4::before { width: 38px; height: 17px; top: -7px; left: 7px; }
+.cloud-4::after { width: 28px; height: 13px; top: -5px; right: 5px; }
 
 /* ==========================================================================
    SECTION HEADERS
@@ -1188,10 +1222,6 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-  .hero-text {
-  grid-area: text;
-  @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1202,6 +1232,7 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
     column-gap: 0;
     row-gap: 20px;
   }
+  .badge { justify-self: center; }
   .hero-text { text-align: center; }
   .hero-desc { margin-inline: auto; }
   .hero-cta { justify-content: center; }
@@ -1233,6 +1264,8 @@ body.game-grabbing, body.game-grabbing * { cursor: grabbing !important; }
   .hero-grid { row-gap: 16px; }
   .hero { padding-top: 104px; }
   .hero-photo { width: 280px; height: 280px; }
+  .cloud-2, .cloud-3 { display: none; }
+  .cloud-1, .cloud-4 { transform: scale(0.7); }
 
   .projects-grid { grid-template-columns: 1fr; }
   .bento-skills { grid-template-columns: 1fr; }
