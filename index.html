@@ -66,27 +66,8 @@
 
   <main>
 
-    <!-- ================= CREAM MARQUEE BAND ================= -->
-    <div class="marquee-band" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Computer Vision</span><span class="dim">◆</span>
-        <span>IoT</span><span class="dim">◆</span>
-        <span>Robotics</span><span class="dim">◆</span>
-        <span>Network</span><span class="dim">◆</span>
-        <span>Cyber Security</span><span class="dim">◆</span>
-        <span>Ethical Hacking</span><span class="dim">◆</span>
-        <span>CTF</span><span class="dim">◆</span>
-        <span>Embedded Systems</span><span class="dim">◆</span>
-        <span>Computer Vision</span><span class="dim">◆</span>
-        <span>IoT</span><span class="dim">◆</span>
-        <span>Robotics</span><span class="dim">◆</span>
-        <span>Network</span><span class="dim">◆</span>
-        <span>Cyber Security</span><span class="dim">◆</span>
-        <span>Ethical Hacking</span><span class="dim">◆</span>
-        <span>CTF</span><span class="dim">◆</span>
-        <span>Embedded Systems</span><span class="dim">◆</span>
-      </div>
-    </div>
+    <!-- ================= CREAM DIVIDER ================= -->
+    <div class="band-divider" aria-hidden="true"></div>
 
     <!-- ================= HERO ================= -->
     <section id="home" class="hero section">
@@ -132,18 +113,23 @@
         </div>
 
         <div class="hero-photo reveal" style="--d:.22s">
-          <div class="hero-photo-glow" aria-hidden="true"></div>
-          <div class="hero-photo-ring" aria-hidden="true"></div>
-          <div class="hero-photo-frame circle">
-            <img src="foto/c.jpg" alt="Portrait of Achmad Hilmi Bukhari" loading="eager"
-                 style="object-position: 50% 18%;">
+          <div class="hero-photo-float">
+            <div class="hero-photo-glow" aria-hidden="true"></div>
+            <div class="hero-photo-ring" aria-hidden="true"></div>
+            <!-- Orbiting skill text -->
+            <svg class="orbit-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle id="orbit-path" cx="50" cy="50" r="46" fill="none" stroke="none" />
+              <text font-size="2.6" letter-spacing=".22em" fill="rgba(233,184,119,0.5)">
+                <textPath href="#orbit-path">
+                  COMPUTER VISION ◆ IOT ◆ ROBOTICS ◆ NETWORK ◆ CYBER SECURITY ◆ ETHICAL HACKING ◆ CTF ◆ EMBEDDED SYSTEMS ◆
+                </textPath>
+              </text>
+            </svg>
+            <div class="hero-photo-frame circle">
+              <img src="foto/c.jpg" alt="Portrait of Achmad Hilmi Bukhari" loading="eager"
+                   style="object-position: 50% 18%;">
+            </div>
           </div>
-
-          <!-- Floating chips -->
-          <div class="chip chip-1" aria-hidden="true"><span class="chip-bg">OpenCV</span></div>
-          <div class="chip chip-2" aria-hidden="true"><span class="chip-bg">Arduino</span></div>
-          <div class="chip chip-3" aria-hidden="true"><span class="chip-bg">Python</span></div>
-          <div class="chip chip-4" aria-hidden="true"><span class="chip-bg">C++</span></div>
         </div>
 
       </div>
